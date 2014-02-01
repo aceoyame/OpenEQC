@@ -186,7 +186,7 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;mysqlclient.lib;zlib.lib;ssleay32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;libmysql.lib;zlib.lib;ssleay32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\..\Build\Release\Login.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\lib\opt;C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\lib;..\..\Dependencies\zlib\lib;..\..\Dependencies\openssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
