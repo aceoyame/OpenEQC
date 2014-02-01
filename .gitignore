@@ -5,7 +5,6 @@ logs/*.log
 ipch
 *.log
 *.obj
-*.dll
 *.tlog
 *.sbr
 *.lib
