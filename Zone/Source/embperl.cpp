@@ -371,7 +371,6 @@ void Embperl::dosub(const char * subname, const std::vector<std::string> * args,
 				
 			}
 
-	EQC::Common::Log(EQCLog::Error,CP_ZONESERVER, "We got here.");
 	dSP;                     
 	ENTER;                          /* everything created after here */
 	SAVETMPS;                       /* ...is a temporary variable.   */
@@ -388,7 +387,7 @@ void Embperl::dosub(const char * subname, const std::vector<std::string> * args,
 	int result = call_pv(subname, mode); /*eval our code*/
 	
 	SPAGAIN;                        /* refresh stack pointer         */
-	EQC::Common::Log(EQCLog::Error,CP_ZONESERVER, "And now here, result %i, %i", result, mode);
+
 	//if(SvTRUE(ERRSV))
 	//{
 	//	err = true;

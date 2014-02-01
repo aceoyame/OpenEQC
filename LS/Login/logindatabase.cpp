@@ -36,7 +36,6 @@ int32 Database::GetLSLoginInfo(char* iUsername, char* oPassword, int8* lsadmin, 
 		return 0;
 
 	DoEscapeString(tmp, iUsername, strlen(iUsername));
-	//cout << "tmp Username:" << tmp << endl;
 
 	if (RunQuery(query, MakeAnyLenString(&query, "SELECT id, name, password, lsadmin, lsstatus, worldadmin,user_active from login_accounts where name like '%s'", tmp), errbuf, &result)) {
 		delete[] query;
@@ -60,9 +59,6 @@ int32 Database::GetLSLoginInfo(char* iUsername, char* oPassword, int8* lsadmin, 
 			if (worldadmin)
 				*worldadmin = atoi(row[5]);
 			mysql_free_result(result);
-			//cout << "data string: " << row[0] << row[1] << row[2] << row[3] << row[4] << row[5] << endl; //DEBUG
-			//cout << "dbUser:" << iUsername << " dbPass:" << oPassword << endl; //DEBUG
-			cout << "New Client: " << iUsername << endl;
 			return tmp;
 		}
 		else {
@@ -413,9 +409,10 @@ int32 Database::CheckEQLogin(const APPLAYER* app, char* oUsername, int8* lsadmin
 	MYSQL_RES *result;
 	MYSQL_ROW row;
 	eq_crypto.DoEQDecrypt(app->pBuffer, eqlogin, 40);
-	
-		LoginCrypt_struct* lcs = (LoginCrypt_struct*) eqlogin;
-		if (strlen(lcs->username) >= 20 || strlen(lcs->password) >= 20)
+
+	LoginCrypt_struct* lcs = (LoginCrypt_struct*) eqlogin;
+
+	if (strlen(lcs->username) >= 20 || strlen(lcs->password) >= 20)
 		{
 			cout<<"Invalid username/password lengths"<<endl;
 			return 0;

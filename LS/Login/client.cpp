@@ -420,6 +420,7 @@ worldresponse_timer->Disable();
 						if (!database.GetLSAccountInfo(account_id, account_name, &lsadmin, &lsstatus, &verified, &worldadmin))
 							account_id = 0;
 						if (account_id == 0) {
+							cout << "me" << endl;
 							FatalError(PasswordErrorMessage);
 							break;
 						}

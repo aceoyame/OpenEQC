@@ -227,8 +227,10 @@ bool Zone::Init() {
 	spawn_group_list = new SpawnGroupList();
 	if (!Database::Instance()->PopulateZoneLists(short_name, &zone_point_list, spawn_group_list))
 		return false;
+
 	char pzs[3] = "";
 	if (Database::Instance()->GetVariable("PersistentZoneState", pzs, 2)) {
+		cout << pzs[0] << endl;
 		if (pzs[0] == '1') {
 			sint8 tmp = Database::Instance()->LoadZoneState(short_name, spawn2_list);
 			if (tmp == 1) {
@@ -250,8 +252,10 @@ bool Zone::Init() {
 			return false;
 	}
 	else if (!Database::Instance()->PopulateZoneSpawnList(short_name, spawn2_list))
+	{
+		cout << "Populate zone spawn list failed" << endl;
 		return false;
-
+	}
 	if (!Database::Instance()->loadZoneLines(&zone_line_data, short_name))
 		cout<<"ZONELINE load failed"<<endl;
 
@@ -644,7 +648,7 @@ bool Database::PopulateZoneSpawnList(char* zone_name, LinkedList<Spawn2*> &spawn
 	MYSQL_ROW row;
 
 	MakeAnyLenString(&query, "SELECT id, spawngroupID, x, y, z, heading, respawntime, variance, roamRange, pathgrid FROM spawn2 WHERE zone='%s'", zone_name);
-
+	
 	if (RunQuery(query, strlen(query), errbuf, &result))
 	{
 		safe_delete_array(query);//delete[] query;
