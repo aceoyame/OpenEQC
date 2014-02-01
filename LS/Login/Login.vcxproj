@@ -71,8 +71,8 @@
     <OutDir Condition="'$(Configuration)|$(Platform)'=='PublicLogin|Win32'">.\../Build\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='PublicLogin|Win32'">.\../Build/PublicLogin\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='PublicLogin|Win32'">false</LinkIncremental>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\../Build\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\../Build/Login\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\Build\Release\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='MiniLogin|Win32'">..\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MiniLogin|Win32'">.\../Build/MiniLogin\</IntDir>
@@ -166,7 +166,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>..\..\Dependencies\openssl\include;C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\include;..\..\Dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\Dependencies\openssl\include;C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\include;..\..\Dependencies\zlib\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>LOGINCRYPTO;INVERSEXY;_WIN32_WINNT=0x0400;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
@@ -186,11 +186,11 @@
       <Culture>0x0409</Culture>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;mysqlclient.lib;zlib.lib;ssleay32MT.lib;libeay32MT.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\../Build/Login.exe</OutputFile>
+      <AdditionalDependencies>odbc32.lib;odbccp32.lib;wsock32.lib;mysqlclient.lib;zlib.lib;ssleay32.lib;libeay32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\..\Build\Release\Login.exe</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\lib;C:\zlib\lib;C:\openssl\lib\VC;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\lib\opt;C:\Program Files %28x86%29\MySQL\MySQL Server 5.1\lib;..\..\Dependencies\zlib\lib;..\..\Dependencies\openssl\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <ProgramDatabaseFile>.\../Build/Login.pdb</ProgramDatabaseFile>
       <GenerateMapFile>true</GenerateMapFile>
       <MapFileName>../Build/Login.map</MapFileName>
