@@ -16,3 +16,4 @@ ipch
 *.pdb
 *.res
 *.rc
+*.cache
