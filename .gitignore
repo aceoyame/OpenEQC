@@ -17,3 +17,4 @@ ipch
 *.res
 *.rc
 *.cache
+*.unsuccessfulbuild
