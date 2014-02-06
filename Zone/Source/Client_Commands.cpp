@@ -131,7 +131,7 @@ int command_init(void) {
 
 	int GM_MASTER_ACESSS = 250;
 	int GM_MANAGEMENT_ACESSS = 200;
-	int GM_ADMIN = 0;
+	int GM_ADMIN = 10;
 	int NORMAL_ACESS = 0;
 	if
 	(	command_add("goto","[x] [y] [z] - Teleport to the provided coordinates or to your target",GM_MASTER_ACESSS,command_goto) ||
