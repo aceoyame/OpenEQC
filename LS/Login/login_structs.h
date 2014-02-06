@@ -12,7 +12,7 @@ struct Update_Struct {
 };
 //Yeahlight: Old client struct (DO NOT DELETE)
 struct ServerList_Struct {
-	int16	numservers;
+	int8	numservers;
 	int8	unknown1;
 	int8	unknown2;
 	int8	showusercount; // 0xFF = show numbers, 0x0 = show "UP"
