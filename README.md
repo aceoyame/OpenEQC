@@ -9,6 +9,11 @@ Dependencies
 - OpenSSL (This is bundled with project, in Dependencies folder)
 - zlib (in Dependencies folder)
 
+Required Files
+---
+- Download the maps and database files from http://newagesoldier.com/myfiles/openeqc/
+- MISC folder has all files required to run the server.
+
 Setup
 ---
 You may need to make updates the the location of includes and lib folders for MySQL and ActivePerl if they are not in the default locations:

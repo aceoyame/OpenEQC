@@ -1,1 +1,0 @@
-eqgame.exe patchme

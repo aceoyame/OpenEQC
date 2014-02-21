@@ -1094,7 +1094,7 @@ void PerlembParser::SendCommands(const char * pkgprefix, const char *event, int3
 			sv_setref_pv(client, "Client", curc);
 		} else {
 			//clear out the value, mainly to get rid of blessedness
-			sv_setsv(client, _empty_sv);
+			sv_setsv(client, newSV(0));
 		}
 
 		//only export NPC if it's a npc quest
