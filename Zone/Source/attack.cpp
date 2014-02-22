@@ -1686,6 +1686,7 @@ void NPC::DoClassAttacks(Mob *target)
 	{
 		case WARRIOR: case WARRIORGM:
 		{
+			if(level >= 6){ //newage: level 6 minimum
 			//Yeahlight: NPC has an 75% chance to kick and a 25% chance to bash
 			//           Note: NPC always kicks if they cannot bash
 			if(rand()%100 >= 25 || GetSkill(BASH) == 0)
@@ -1732,6 +1733,7 @@ void NPC::DoClassAttacks(Mob *target)
 				}
 				//Yeahlight: No, using KickReuseTime is not a mistake here
 				reuse = KickReuseTime * 1000;
+			}
 			}
 			break;
 		}

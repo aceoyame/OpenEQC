@@ -17,3 +17,8 @@ ipch
 *.res
 *.rc
 *.cache
+Build/Debug/Zone.exe
+Build/Debug/World.exe
+Build/Debug/Login.exe
+Build/Debug/SharedMemory.dll
+*.unsuccessfulbuild

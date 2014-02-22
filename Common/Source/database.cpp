@@ -2922,7 +2922,8 @@ bool Database::SetStartingItems(PlayerProfile_Struct *cc, int8 si_race, int8 si_
 
 	cout<< "Loading starting items for: Race: " << (int) si_race << " Class: " << (int) si_class << " onto " << si_name << endl;
 
-	if(RunQuery(query, MakeAnyLenString(&query, "SELECT itemid FROM starting_items WHERE race = %i AND class = %i ORDER BY id", (int) si_race, (int) si_class), errbuf, &result))
+	//newage: updated to fix starting items DB
+	if(RunQuery(query, MakeAnyLenString(&query, "SELECT itemid FROM starting_items WHERE (race = %i or race = 0) AND (class = %i or class = 0) ORDER BY id", (int) si_race, (int) si_class), errbuf, &result))
 	{
 		while(row = mysql_fetch_row(result))
 		{

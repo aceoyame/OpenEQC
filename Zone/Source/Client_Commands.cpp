@@ -131,7 +131,7 @@ int command_init(void) {
 
 	int GM_MASTER_ACESSS = 250;
 	int GM_MANAGEMENT_ACESSS = 200;
-	int GM_ADMIN = 0;
+	int GM_ADMIN = 10;
 	int NORMAL_ACESS = 0;
 	if
 	(	command_add("goto","[x] [y] [z] - Teleport to the provided coordinates or to your target",GM_MASTER_ACESSS,command_goto) ||
@@ -150,6 +150,8 @@ int command_init(void) {
 		command_add("si2",NULL,EQC_Alpha_Tester,command_summonitemnonblob) ||
 		command_add("summonitem2",NULL,EQC_Alpha_Tester,command_summonitemnonblob) ||
 		
+		// corpse summon //newage: is this supposed to be in EQC?
+		command_add("corpse","- Manipulate corpses, use with no arguments for help",0,command_corpse) ||
 
 		command_add("setexp","[value] - Set your experience",GM_ADMIN,command_setexp) ||
 		command_add("addexp","[value] - Adds to your experience",GM_ADMIN,command_addexp) ||
@@ -700,6 +702,23 @@ void command_summonitem(Client *c, const Seperator *sep)
 				c->SummonItem(itemid,1);
 	}
 }	
+
+void command_corpse(Client *c, const Seperator *sep)
+{
+	//there is no permissions checking here, yet. If the corpse matches your name, summon it.
+	Mob *target=c->GetTarget();
+	if (c->GetTarget()->IsCorpse() && strstr(c->GetName(),c->GetTarget()->GetName()))
+	{
+		if(fdistance(c->GetX(), c->GetY(), c->GetTarget()->GetX(), c->GetTarget()->GetY()) < 200) {
+			c->Message(BLACK, "Summoning corpse...");
+			c->GetTarget()->CastToCorpse()->GMMove(c->GetX(), c->GetY(), c->GetZ(), c->GetHeading());
+		} else {
+			c->Message(BLACK, "Get closer.");
+		}
+	} else {
+		c->Message(BLACK, "This is not your corpse.");
+	}
+}
 
 void command_itemsearch(Client *c, const Seperator *sep)
 {	

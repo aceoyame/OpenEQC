@@ -52,6 +52,8 @@ void command_summonitem(Client *c, const Seperator *sep);
 void command_addexp(Client *c, const Seperator *sep);
 // set xp of the player
 void command_setexp(Client *c, const Seperator *sep);
+// summon corpse
+void command_corpse(Client *c, const Seperator *sep);
 // finds item by name and shows id
 void command_itemsearch(Client *c, const Seperator *sep);
 // zone to safe coord in specified zonename
